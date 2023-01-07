@@ -2,9 +2,11 @@ package Abstrack;
 
 public class Main {
     public static void main(String[] args) {
-        Animal v=new Lion();
+        AnimalAbstractClass v=new Lion();
         v.sound();
-        Animal l=new Tiger();
+        AnimalAbstractClass l=new Tiger();
         l.sound();
+        l.display();
+        v.display();
     }
 }
