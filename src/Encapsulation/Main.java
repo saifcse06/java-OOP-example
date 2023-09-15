@@ -1,6 +1,6 @@
 package Encapsulation;
 
-public class Main extends EncapsulationExample {
+public class Main {
     public static void main(String[] args) {
         EncapsulationExample ecap=new EncapsulationExample();
         ecap.setAge(40);
