@@ -4,4 +4,8 @@
 -> and index is not each other next
 
 # Problem 02:
-find from the array odd this are gater than even number; it call ishabitoddNumber
+find from the array odd this are gater than even number; it call 
+
+
+#Problem Solving Blog
+https://anojcrazycoder.wordpress.com/page/2/

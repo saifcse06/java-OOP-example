@@ -19,8 +19,50 @@ public class ProblemSolvingPractice {
 //        System.out.println(isCentered(new int[] {3, 2, 1, 4, 5}));
 //        System.out.println(isZeroPlentiful(new int[] {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0}));
 //        System.out.println(guthrieIndex(42));
-        System.out.println(isVanilla(new int[] {9, 999, 99999, -9999}));
-        System.out.println(isVanilla(new int[] {11, 22, 13, 34, 125}));
+//        System.out.println(isVanilla(new int[] {9, 999, 99999, -9999}));
+//        System.out.println(isVanilla(new int[] {11, 22, 13, 34, 125}));
+//        System.out.println(sumFactor(new int[] {3, 0, 2, -5, 0}));
+        System.out.println(stantonMeasure(new int[] {1, 3, 1, 1, 3, 3, 2, 3, 3, 3, 4}));
+    }
+    static int stantonMeasure(int[ ] a){
+        int count = 0,tempCount = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == 1){
+                count++;
+            }
+        }
+        int stantonMeasureCount = 0;
+        for (int j = 0; j < a.length; j++) {
+            if (a[j] == count){
+                stantonMeasureCount++;
+            }
+        }
+        return stantonMeasureCount;
+    }
+    static int sumFactor(int[]  a){
+        if (a.length<1){
+            return 0;
+        }
+        int sum=0,count =0;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i];
+        }
+        for (int j = 0; j < a.length; j++) {
+                if (sum == a[j]){
+                    count++;
+                }
+        }
+        return count;
+    }
+    static int primeCount(int start, int end){
+        int count=0;
+        for (int i = start; i <= end; i++) {
+            if (i%2!=0&&isPrime(i)){
+                count++;
+            }
+        }
+        return count;
     }
     static int isVanilla(int[] a)
     {
@@ -43,7 +85,6 @@ public class ProblemSolvingPractice {
                 }
             }
         }
-        label:
         return rtnVal;
     }
     static int guthrieIndex(int n)
@@ -65,7 +106,8 @@ public class ProblemSolvingPractice {
         return rtnVal;
 
     }
-    static int isZeroPlentiful(int[] a){
+    static int isZeroPlentiful(int[] a)
+    {
         if (a.length<1){
             return 0;
         }
@@ -89,23 +131,29 @@ public class ProblemSolvingPractice {
 
         return count;
     }
-    static   int isCentered(int[ ] a){
-        if(a.length%2!=0){
-            for (int i = 0; i < a.length; i++){
-                if (a.length == 1){
-                    return 1;
-                }
-                int center = a[a.length/2];
-                if (center>=a[i]){
-                    return 0;
-                }
-            }
-        }else {
+    static   int isCentered(int[] a)
+    {
+        int n = a.length;
+
+        // Check if the array is empty or has an even number of elements
+        if (n == 0 || n % 2 == 0) {
             return 0;
         }
+
+        int middleIndex = n / 2;
+        int middleValue = a[middleIndex];
+
+        // Check if the middle element is strictly less than all other elements
+        for (int i = 0; i < n; i++) {
+            if (i != middleIndex && a[i] <= middleValue) {
+                return 0;
+            }
+        }
+
         return 1;
     }
-    static int isDual(int[] a){
+    static int isDual(int[] a)
+    {
         if (a.length>1){
             if (a.length % 2 ==0){
                 for (int i = 2; i < a.length; i=i+2) {
@@ -119,7 +167,8 @@ public class ProblemSolvingPractice {
         }
         return 1;
     }
-    static int[] clusterCompression(int[] a){
+    static int[] clusterCompression(int[] a)
+    {
         int[] newArry = new int[FindCompressedArrayCount(a)];
         int j=0;
         int currentValue=a[0];
@@ -133,7 +182,8 @@ public class ProblemSolvingPractice {
         }
         return newArry;
     }
-    static int  FindCompressedArrayCount(int[] a){
+    static int  FindCompressedArrayCount(int[] a)
+    {
         int count=1,currentValue= a[0];
         for (int i = 0; i < a.length; i++) {
             if (a[i]!=currentValue){
@@ -143,7 +193,8 @@ public class ProblemSolvingPractice {
         }
         return count;
     }
-    static int repsEqual(int[] a, int n) {
+    static int repsEqual(int[] a, int n)
+    {
         int result = 1, remain = 0;
         for (int i = a.length - 1; i > 0; i--) {
             remain = n % 10;
